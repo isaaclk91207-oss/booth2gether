@@ -2,6 +2,8 @@
 
 Real-time online photobooth web app where two users create/join a private room, stream live camera via WebRTC, synchronize countdown, capture 4 photos together, and generate a downloadable vertical photobooth strip.
 
+**Author:** Ei Thazin Htay (Junior Software Engineer) Udergraduate
+
 ## Tech Stack
 
 | Layer | Technology |
