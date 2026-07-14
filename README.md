@@ -139,7 +139,7 @@ The strip generator creates a 600px wide vertical image containing:
 Backend (`packages/backend/.env`):
 
 ```env
-DATABASE_URL="mysql://root:booth2gether@localhost:3308/booth2gether"
+DATABASE_URL="mysql://root:@localhost/booth2gether"
 PORT=4000
 CORS_ORIGIN="http://localhost:3000"
 
