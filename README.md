@@ -161,3 +161,84 @@ R2_PUBLIC_URL=""
 | `ROOM_MAX_USERS` | 2 | Max users per room |
 | `DISCONNECT_TIMEOUT_SECONDS` | 30 | Before user removed |
 | `ROOM_CODE_LENGTH` | 6 | Characters in room code |
+
+## Deployment
+
+### Frontend (Vercel)
+
+1. Push code to GitHub
+2. Go to [vercel.com](https://vercel.com) → New Project
+3. Import the GitHub repo
+4. Set **Root Directory** to `packages/frontend`
+5. Add environment variable:
+   ```
+   NEXT_PUBLIC_API_URL=https://your-backend-url.onrender.com
+   ```
+6. Deploy
+
+### Backend (Render)
+
+1. Go to [render.com](https://render.com) → New Web Service
+2. Connect the GitHub repo
+3. Settings:
+   - **Root Directory:** `packages/backend`
+   - **Build Command:** `cd ../shared && pnpm install && pnpm build && cd ../backend && pnpm install && pnpm db:generate`
+   - **Start Command:** `pnpm start`
+4. Add environment variables:
+   ```
+   NODE_ENV=production
+   DATABASE_URL=mysql://user:pass@host:3306/booth2gether
+   CORS_ORIGIN=https://your-frontend.vercel.app
+   PORT=4000
+   ```
+5. Deploy
+
+### Database (PlanetScale / MySQL)
+
+For production, use a managed MySQL service:
+- [PlanetScale](https://planetscale.com) (free tier available)
+- [Railway MySQL](https://railway.app)
+- [AWS RDS](https://aws.amazon.com/rds/)
+
+After creating the database:
+```bash
+# Update DATABASE_URL in backend .env
+# Then run migration
+npx prisma db push
+npx prisma generate
+```
+
+### Storage (Cloudflare R2)
+
+For production photo storage:
+1. Create a [Cloudflare R2](https://www.cloudflare.com/products/r2/) bucket
+2. Generate API tokens
+3. Add to backend environment:
+   ```
+   R2_ACCOUNT_ID=your_account_id
+   R2_ACCESS_KEY_ID=your_key
+   R2_SECRET_ACCESS_KEY=your_secret
+   R2_BUCKET_NAME=booth2gether
+   R2_PUBLIC_URL=https://pub-xxx.r2.dev
+   ```
+
+## Security
+
+- **Helmet** — HTTP security headers
+- **Rate Limiting** — 100 requests/15min general, 20 uploads/min
+- **Compression** — gzip/deflate responses
+- **CORS** — Restricted to configured origin
+- **Input Validation** — Zod schema validation
+- **File Upload Limits** — 5MB max, JPEG/PNG/WebP only
+
+## Performance
+
+- **Compression** — All responses compressed
+- **Caching** — Static uploads cached for 1 day
+- **Connection Pooling** — Prisma connection pool
+- **WebSocket** — Persistent connections for real-time
+- **Image Optimization** — Sharp for server-side processing
+
+## Author
+
+**Ei Thazin Htay** (Junior Software Engineer)

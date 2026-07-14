@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: booth2gether-api
+    runtime: node
+    plan: free
+    buildCommand: cd ../shared && pnpm install && pnpm build && cd ../backend && pnpm install && pnpm db:generate
+    startCommand: pnpm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
+      - key: PORT
+        value: 4000
+      - key: R2_ACCOUNT_ID
+        sync: false
+      - key: R2_ACCESS_KEY_ID
+        sync: false
+      - key: R2_SECRET_ACCESS_KEY
+        sync: false
+      - key: R2_BUCKET_NAME
+        sync: false
+      - key: R2_PUBLIC_URL
+        sync: false
