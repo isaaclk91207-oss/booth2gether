@@ -1,0 +1,2654 @@
+{
+  "version": "2.14",
+  "children": [
+    {
+      "type": "frame",
+      "id": "fS7Rs",
+      "x": 0,
+      "y": 0,
+      "name": "BoothTogether Home",
+      "clip": true,
+      "width": 390,
+      "fill": {
+        "type": "gradient",
+        "gradientType": "linear",
+        "enabled": true,
+        "rotation": 180,
+        "size": {
+          "height": 1
+        },
+        "colors": [
+          {
+            "color": "#FDF2F8",
+            "position": 0
+          },
+          {
+            "color": "#F5E6FF",
+            "position": 0.45
+          },
+          {
+            "color": "#EDE9FE",
+            "position": 1
+          }
+        ]
+      },
+      "cornerRadius": 40,
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "z7FWB",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            0,
+            28
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "W5F0PF",
+              "name": "Time",
+              "fill": "$text-primary",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "EuLt8",
+              "name": "Status Icons",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "aDpse",
+                  "name": "Signal",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "signal",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                },
+                {
+                  "type": "icon",
+                  "id": "HQwm9",
+                  "name": "Wifi",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                },
+                {
+                  "type": "icon",
+                  "id": "fEnd9",
+                  "name": "Battery",
+                  "width": 22,
+                  "height": 16,
+                  "icon": "battery-full",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "T6qs6t",
+          "name": "Content Wrapper",
+          "width": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            48,
+            "$spacing-screen",
+            64,
+            "$spacing-screen"
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "tnhEL",
+              "name": "Logo Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "nwbJH",
+                  "name": "Logo Card",
+                  "width": 88,
+                  "height": 88,
+                  "fill": "$surface-card",
+                  "cornerRadius": "$radius-lg",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#A855F720",
+                    "offset": {
+                      "x": 0,
+                      "y": 8
+                    },
+                    "blur": 24,
+                    "spread": -4
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "z3nH8",
+                      "name": "Camera Icon",
+                      "width": 36,
+                      "height": 36,
+                      "icon": "camera",
+                      "library": "lucide",
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 135,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "$accent-pink",
+                            "position": 0
+                          },
+                          {
+                            "color": "$accent-purple",
+                            "position": 1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Alua0",
+                  "name": "App Name",
+                  "fill": "$text-secondary",
+                  "content": "BoothTogether",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.5
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "O6Ifk",
+              "name": "Hero Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "JGEln",
+                  "name": "Welcome Headline",
+                  "fill": "$text-primary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Capture moments,\ntogether.",
+                  "lineHeight": 1.15,
+                  "textAlign": "center",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 36,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "KDoyZ",
+                  "name": "Description",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Create a room with your partner or friends and take photos together — no matter the distance.",
+                  "lineHeight": 1.5,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 16
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "bI7gW",
+              "name": "Feature Preview Card",
+              "width": "fill_container",
+              "height": 120,
+              "fill": "#FFFFFF80",
+              "cornerRadius": "$radius-lg",
+              "stroke": "#FFFFFF",
+              "strokeWidth": 1,
+              "gap": 16,
+              "padding": 20,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "HjRNt",
+                  "name": "Photo Frame Left",
+                  "rotation": -6.000000000000001,
+                  "width": 72,
+                  "height": 88,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 135,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#FBCFE8",
+                        "position": 0
+                      },
+                      {
+                        "color": "#DDD6FE",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 12,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "rT28O",
+                      "name": "Heart Left",
+                      "width": 24,
+                      "height": 24,
+                      "icon": "heart",
+                      "library": "lucide",
+                      "fill": "#FFFFFFCC"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "DIHnA",
+                  "name": "Connection Dots",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "t42BVW",
+                      "name": "Dot 1",
+                      "opacity": 0.5,
+                      "fill": "$accent-purple",
+                      "width": 6,
+                      "height": 6
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "n7PEpJ",
+                      "name": "Dot 2",
+                      "opacity": 0.7,
+                      "fill": "$accent-purple",
+                      "width": 6,
+                      "height": 6
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "urDUj",
+                      "name": "Dot 3",
+                      "opacity": 0.9000000000000001,
+                      "fill": "$accent-purple",
+                      "width": 6,
+                      "height": 6
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GwAuq",
+                  "name": "Photo Frame Right",
+                  "rotation": 6.000000000000001,
+                  "width": 72,
+                  "height": 88,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 135,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#DDD6FE",
+                        "position": 0
+                      },
+                      {
+                        "color": "#FBCFE8",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 12,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "k0b3s",
+                      "name": "Camera Right",
+                      "width": 24,
+                      "height": 24,
+                      "icon": "camera",
+                      "library": "lucide",
+                      "fill": "#FFFFFFCC"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "Fx8qd",
+              "name": "Actions Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n3KALz",
+                  "name": "Create Room Button",
+                  "width": "fill_container",
+                  "height": 56,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 90,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$accent-pink",
+                        "position": 0
+                      },
+                      {
+                        "color": "$accent-purple",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 28,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#A855F740",
+                    "offset": {
+                      "x": 0,
+                      "y": 6
+                    },
+                    "blur": 20,
+                    "spread": -2
+                  },
+                  "gap": 10,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "vFGhF",
+                      "name": "Plus Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "plus",
+                      "library": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VRCSW",
+                      "name": "Create Room Label",
+                      "fill": "#FFFFFF",
+                      "content": "Create Room",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "efWbH",
+                  "name": "Join Room Button",
+                  "width": "fill_container",
+                  "height": 56,
+                  "fill": "$surface-card",
+                  "cornerRadius": 28,
+                  "stroke": "#E9D5FF",
+                  "strokeWidth": 1.5,
+                  "gap": 10,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "W3tf8",
+                      "name": "Users Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "users",
+                      "library": "lucide",
+                      "fill": "$accent-purple"
+                    },
+                    {
+                      "type": "text",
+                      "id": "nVHH5",
+                      "name": "Join Room Label",
+                      "fill": "$accent-purple",
+                      "content": "Join Room",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "IqdhR",
+      "x": 470,
+      "y": 0,
+      "name": "BoothTogether Home - Android",
+      "clip": true,
+      "width": 390,
+      "fill": {
+        "type": "gradient",
+        "gradientType": "linear",
+        "enabled": true,
+        "rotation": 180,
+        "size": {
+          "height": 1
+        },
+        "colors": [
+          {
+            "color": "#FDF2F8",
+            "position": 0
+          },
+          {
+            "color": "#F5E6FF",
+            "position": 0.45
+          },
+          {
+            "color": "#EDE9FE",
+            "position": 1
+          }
+        ]
+      },
+      "cornerRadius": 40,
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "OLsQV",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 48,
+          "padding": [
+            0,
+            20
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "Cztu4",
+              "name": "Time",
+              "fill": "$text-primary",
+              "content": "1:07",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "500"
+            },
+            {
+              "type": "frame",
+              "id": "U9pAp0",
+              "name": "Status Icons",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "u5KriW",
+                  "name": "Signal",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "signal",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                },
+                {
+                  "type": "icon",
+                  "id": "pNlt2",
+                  "name": "Wifi",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                },
+                {
+                  "type": "icon",
+                  "id": "DSB6H",
+                  "name": "Battery",
+                  "width": 22,
+                  "height": 16,
+                  "icon": "battery-full",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "SW5jY",
+          "name": "Content Wrapper",
+          "width": "fill_container",
+          "layout": "vertical",
+          "padding": [
+            48,
+            "$spacing-screen",
+            64,
+            "$spacing-screen"
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "QYQDm",
+              "name": "Logo Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "xsJd7",
+                  "name": "Logo Card",
+                  "width": 88,
+                  "height": 88,
+                  "fill": "$surface-card",
+                  "cornerRadius": "$radius-lg",
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#A855F720",
+                    "offset": {
+                      "x": 0,
+                      "y": 8
+                    },
+                    "blur": 24,
+                    "spread": -4
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "c2wTgD",
+                      "name": "Camera Icon",
+                      "width": 36,
+                      "height": 36,
+                      "icon": "camera",
+                      "library": "lucide",
+                      "fill": {
+                        "type": "gradient",
+                        "gradientType": "linear",
+                        "enabled": true,
+                        "rotation": 135,
+                        "size": {
+                          "height": 1
+                        },
+                        "colors": [
+                          {
+                            "color": "$accent-pink",
+                            "position": 0
+                          },
+                          {
+                            "color": "$accent-purple",
+                            "position": 1
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "d4cxf",
+                  "name": "App Name",
+                  "fill": "$text-secondary",
+                  "content": "BoothTogether",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600",
+                  "letterSpacing": 1.5
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "CTJ16",
+              "name": "Hero Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "WP4MZ",
+                  "name": "Welcome Headline",
+                  "fill": "$text-primary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Capture moments,\ntogether.",
+                  "lineHeight": 1.15,
+                  "textAlign": "center",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 36,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "zeleK",
+                  "name": "Description",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Create a room with your partner or friends and take photos together — no matter the distance.",
+                  "lineHeight": 1.5,
+                  "textAlign": "center",
+                  "fontFamily": "Inter",
+                  "fontSize": 16
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "h64q5H",
+              "name": "Feature Preview Card",
+              "width": "fill_container",
+              "height": 120,
+              "fill": "#FFFFFF80",
+              "cornerRadius": "$radius-lg",
+              "stroke": "#FFFFFF",
+              "strokeWidth": 1,
+              "gap": 16,
+              "padding": 20,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "teJE1",
+                  "name": "Photo Frame Left",
+                  "rotation": -6.000000000000001,
+                  "width": 72,
+                  "height": 88,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 135,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#FBCFE8",
+                        "position": 0
+                      },
+                      {
+                        "color": "#DDD6FE",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 12,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "xAKQM",
+                      "name": "Heart Left",
+                      "width": 24,
+                      "height": 24,
+                      "icon": "heart",
+                      "library": "lucide",
+                      "fill": "#FFFFFFCC"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "XRz8F",
+                  "name": "Connection Dots",
+                  "gap": 6,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "ellipse",
+                      "id": "cbaJ0",
+                      "name": "Dot 1",
+                      "opacity": 0.5,
+                      "fill": "$accent-purple",
+                      "width": 6,
+                      "height": 6
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "Te2xd",
+                      "name": "Dot 2",
+                      "opacity": 0.7,
+                      "fill": "$accent-purple",
+                      "width": 6,
+                      "height": 6
+                    },
+                    {
+                      "type": "ellipse",
+                      "id": "f2xpD",
+                      "name": "Dot 3",
+                      "opacity": 0.9000000000000001,
+                      "fill": "$accent-purple",
+                      "width": 6,
+                      "height": 6
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "F7fNd",
+                  "name": "Photo Frame Right",
+                  "rotation": 6.000000000000001,
+                  "width": 72,
+                  "height": 88,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 135,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "#DDD6FE",
+                        "position": 0
+                      },
+                      {
+                        "color": "#FBCFE8",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 12,
+                  "layout": "vertical",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "Etk5i",
+                      "name": "Camera Right",
+                      "width": 24,
+                      "height": 24,
+                      "icon": "camera",
+                      "library": "lucide",
+                      "fill": "#FFFFFFCC"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "I2YAB",
+              "name": "Actions Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "P6l0YQ",
+                  "name": "Create Room Button",
+                  "width": "fill_container",
+                  "height": 56,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 90,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$accent-pink",
+                        "position": 0
+                      },
+                      {
+                        "color": "$accent-purple",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 28,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#A855F740",
+                    "offset": {
+                      "x": 0,
+                      "y": 6
+                    },
+                    "blur": 20,
+                    "spread": -2
+                  },
+                  "gap": 10,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "r89AE",
+                      "name": "Plus Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "plus",
+                      "library": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "text",
+                      "id": "M4sMk8",
+                      "name": "Create Room Label",
+                      "fill": "#FFFFFF",
+                      "content": "Create Room",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "RcJfg",
+                  "name": "Join Room Button",
+                  "width": "fill_container",
+                  "height": 56,
+                  "fill": "$surface-card",
+                  "cornerRadius": 28,
+                  "stroke": "#E9D5FF",
+                  "strokeWidth": 1.5,
+                  "gap": 10,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "K0vsqS",
+                      "name": "Users Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "users",
+                      "library": "lucide",
+                      "fill": "$accent-purple"
+                    },
+                    {
+                      "type": "text",
+                      "id": "wwCEo",
+                      "name": "Join Room Label",
+                      "fill": "$accent-purple",
+                      "content": "Join Room",
+                      "fontFamily": "Inter",
+                      "fontSize": 17,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "GJIPA",
+      "x": 940,
+      "y": 0,
+      "name": "Create Room",
+      "clip": true,
+      "width": 390,
+      "fill": {
+        "type": "gradient",
+        "gradientType": "linear",
+        "enabled": true,
+        "rotation": 180,
+        "size": {
+          "height": 1
+        },
+        "colors": [
+          {
+            "color": "#FDF2F8",
+            "position": 0
+          },
+          {
+            "color": "#F5E6FF",
+            "position": 0.45
+          },
+          {
+            "color": "#EDE9FE",
+            "position": 1
+          }
+        ]
+      },
+      "cornerRadius": 40,
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "ruITB",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            0,
+            28
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "vxmsX",
+              "name": "Time",
+              "fill": "$text-primary",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "vvPsU",
+              "name": "Status Icons",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "p0oEik",
+                  "name": "Signal",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "signal",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                },
+                {
+                  "type": "icon",
+                  "id": "M9CrGo",
+                  "name": "Wifi",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                },
+                {
+                  "type": "icon",
+                  "id": "voL1A",
+                  "name": "Battery",
+                  "width": 22,
+                  "height": 16,
+                  "icon": "battery-full",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Fl4x9",
+          "name": "Nav Header",
+          "width": "fill_container",
+          "height": 56,
+          "gap": 12,
+          "padding": [
+            0,
+            "$spacing-screen",
+            0,
+            16
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "Dl9SO",
+              "name": "Back Button",
+              "width": 40,
+              "height": 40,
+              "fill": "#FFFFFF99",
+              "cornerRadius": 20,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "A1L5vu",
+                  "name": "Back Icon",
+                  "width": 22,
+                  "height": 22,
+                  "icon": "chevron-left",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "PFV6F",
+              "name": "Screen Title",
+              "fill": "$text-primary",
+              "content": "Create Room",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "S528ok",
+          "name": "Content Wrapper",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            8,
+            "$spacing-screen",
+            32,
+            "$spacing-screen"
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "h0sjX",
+              "name": "Theme Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "WVwch",
+                  "name": "Theme Label",
+                  "fill": "$text-muted",
+                  "content": "Choose Theme",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600",
+                  "letterSpacing": 0.5
+                },
+                {
+                  "type": "text",
+                  "id": "zjVPF",
+                  "name": "Theme Title",
+                  "fill": "$text-primary",
+                  "content": "Photobooth Style",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 24,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "z3SZb",
+                  "name": "Theme Grid",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "CKvUx",
+                      "name": "Theme Row 1",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "BiGtV",
+                          "name": "Soft Romance Theme",
+                          "width": "fill_container",
+                          "height": 120,
+                          "fill": "$surface-card",
+                          "cornerRadius": "$radius-md",
+                          "stroke": "$accent-purple",
+                          "strokeWidth": 2,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#A855F730",
+                            "offset": {
+                              "x": 0,
+                              "y": 4
+                            },
+                            "blur": 16,
+                            "spread": -2
+                          },
+                          "layout": "vertical",
+                          "gap": 10,
+                          "padding": 14,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "L41lV",
+                              "name": "Preview",
+                              "width": "fill_container",
+                              "height": 56,
+                              "fill": {
+                                "type": "gradient",
+                                "gradientType": "linear",
+                                "enabled": true,
+                                "rotation": 135,
+                                "size": {
+                                  "height": 1
+                                },
+                                "colors": [
+                                  {
+                                    "color": "#FBCFE8",
+                                    "position": 0
+                                  },
+                                  {
+                                    "color": "#DDD6FE",
+                                    "position": 1
+                                  }
+                                ]
+                              },
+                              "cornerRadius": 10
+                            },
+                            {
+                              "type": "frame",
+                              "id": "gkNPL",
+                              "name": "Label Row",
+                              "width": "fill_container",
+                              "gap": 6,
+                              "justifyContent": "space_between",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "r7S16",
+                                  "name": "Label Left",
+                                  "gap": 6,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "np8WI",
+                                      "name": "Theme Icon",
+                                      "width": 14,
+                                      "height": 14,
+                                      "icon": "heart",
+                                      "library": "lucide",
+                                      "fill": "$accent-purple"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "XWU8R",
+                                      "name": "Theme Name",
+                                      "fill": "$text-primary",
+                                      "content": "Soft Romance",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 13,
+                                      "fontWeight": "600"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "frame",
+                                  "id": "tRFnG",
+                                  "name": "Selected Badge",
+                                  "width": 20,
+                                  "height": 20,
+                                  "fill": "$accent-purple",
+                                  "cornerRadius": 10,
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "Lqt5r",
+                                      "name": "Check",
+                                      "width": 12,
+                                      "height": 12,
+                                      "icon": "check",
+                                      "library": "lucide",
+                                      "fill": "#FFFFFF"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "hhwNb",
+                          "name": "Golden Hour Theme",
+                          "width": "fill_container",
+                          "height": 120,
+                          "fill": "#FFFFFF66",
+                          "cornerRadius": "$radius-md",
+                          "stroke": "#FFFFFF",
+                          "strokeWidth": 1,
+                          "layout": "vertical",
+                          "gap": 10,
+                          "padding": 14,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "c7HYzu",
+                              "name": "Preview",
+                              "width": "fill_container",
+                              "height": 56,
+                              "fill": {
+                                "type": "gradient",
+                                "gradientType": "linear",
+                                "enabled": true,
+                                "rotation": 135,
+                                "size": {
+                                  "height": 1
+                                },
+                                "colors": [
+                                  {
+                                    "color": "#FDE68A",
+                                    "position": 0
+                                  },
+                                  {
+                                    "color": "#FCA5A5",
+                                    "position": 1
+                                  }
+                                ]
+                              },
+                              "cornerRadius": 10
+                            },
+                            {
+                              "type": "frame",
+                              "id": "dphx8",
+                              "name": "Label Row",
+                              "width": "fill_container",
+                              "gap": 6,
+                              "justifyContent": "space_between",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "FOsZe",
+                                  "name": "Label Left",
+                                  "gap": 6,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "XALZH",
+                                      "name": "Theme Icon",
+                                      "width": 14,
+                                      "height": 14,
+                                      "icon": "sun",
+                                      "library": "lucide",
+                                      "fill": "$text-secondary"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "dHFbJ",
+                                      "name": "Theme Name",
+                                      "fill": "$text-secondary",
+                                      "content": "Golden Hour",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 13,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "PcKIF",
+                      "name": "Theme Row 2",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "KHAHS",
+                          "name": "Midnight Theme",
+                          "width": "fill_container",
+                          "height": 120,
+                          "fill": "#FFFFFF66",
+                          "cornerRadius": "$radius-md",
+                          "stroke": "#FFFFFF",
+                          "strokeWidth": 1,
+                          "layout": "vertical",
+                          "gap": 10,
+                          "padding": 14,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "VtgKd",
+                              "name": "Preview",
+                              "width": "fill_container",
+                              "height": 56,
+                              "fill": {
+                                "type": "gradient",
+                                "gradientType": "linear",
+                                "enabled": true,
+                                "rotation": 135,
+                                "size": {
+                                  "height": 1
+                                },
+                                "colors": [
+                                  {
+                                    "color": "#818CF8",
+                                    "position": 0
+                                  },
+                                  {
+                                    "color": "#312E81",
+                                    "position": 1
+                                  }
+                                ]
+                              },
+                              "cornerRadius": 10
+                            },
+                            {
+                              "type": "frame",
+                              "id": "S7JK5N",
+                              "name": "Label Row",
+                              "width": "fill_container",
+                              "gap": 6,
+                              "justifyContent": "space_between",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "u6LcH",
+                                  "name": "Label Left",
+                                  "gap": 6,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "X4HbK",
+                                      "name": "Theme Icon",
+                                      "width": 14,
+                                      "height": 14,
+                                      "icon": "moon",
+                                      "library": "lucide",
+                                      "fill": "$text-secondary"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "uGDqp",
+                                      "name": "Theme Name",
+                                      "fill": "$text-secondary",
+                                      "content": "Midnight",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 13,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Eb8db",
+                          "name": "Clean White Theme",
+                          "width": "fill_container",
+                          "height": 120,
+                          "fill": "#FFFFFF66",
+                          "cornerRadius": "$radius-md",
+                          "stroke": "#FFFFFF",
+                          "strokeWidth": 1,
+                          "layout": "vertical",
+                          "gap": 10,
+                          "padding": 14,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "DmoXn",
+                              "name": "Preview",
+                              "width": "fill_container",
+                              "height": 56,
+                              "fill": {
+                                "type": "gradient",
+                                "gradientType": "linear",
+                                "enabled": true,
+                                "rotation": 135,
+                                "size": {
+                                  "height": 1
+                                },
+                                "colors": [
+                                  {
+                                    "color": "#F9FAFB",
+                                    "position": 0
+                                  },
+                                  {
+                                    "color": "#E5E7EB",
+                                    "position": 1
+                                  }
+                                ]
+                              },
+                              "cornerRadius": 10
+                            },
+                            {
+                              "type": "frame",
+                              "id": "I0jPl",
+                              "name": "Label Row",
+                              "width": "fill_container",
+                              "gap": 6,
+                              "justifyContent": "space_between",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "frame",
+                                  "id": "BR4YZ",
+                                  "name": "Label Left",
+                                  "gap": 6,
+                                  "alignItems": "center",
+                                  "children": [
+                                    {
+                                      "type": "icon",
+                                      "id": "Lq5AX",
+                                      "name": "Theme Icon",
+                                      "width": 14,
+                                      "height": 14,
+                                      "icon": "sparkles",
+                                      "library": "lucide",
+                                      "fill": "$text-secondary"
+                                    },
+                                    {
+                                      "type": "text",
+                                      "id": "XBHNa",
+                                      "name": "Theme Name",
+                                      "fill": "$text-secondary",
+                                      "content": "Clean White",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 13,
+                                      "fontWeight": "500"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OdHUg",
+              "name": "Photo Count Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "SyifP",
+                  "name": "Photo Label",
+                  "fill": "$text-muted",
+                  "content": "Session Length",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600",
+                  "letterSpacing": 0.5
+                },
+                {
+                  "type": "text",
+                  "id": "vppJZ",
+                  "name": "Photo Title",
+                  "fill": "$text-primary",
+                  "content": "Number of Photos",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 24,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "RlrKS",
+                  "name": "Photo Count Options",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "OHkWS",
+                      "name": "4 Photos",
+                      "width": "fill_container",
+                      "height": 96,
+                      "fill": "#FFFFFF66",
+                      "cornerRadius": "$radius-md",
+                      "stroke": "#FFFFFF",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": [
+                        16,
+                        12
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "PTLdJ",
+                          "name": "Count Number",
+                          "fill": "$text-primary",
+                          "content": "4",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 28,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "QZziq",
+                          "name": "Count Label",
+                          "fill": "$text-muted",
+                          "content": "Quick",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "ugj1Y",
+                      "name": "6 Photos",
+                      "width": "fill_container",
+                      "height": 96,
+                      "fill": "$surface-card",
+                      "cornerRadius": "$radius-md",
+                      "stroke": "$accent-pink",
+                      "strokeWidth": 2,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#EC489930",
+                        "offset": {
+                          "x": 0,
+                          "y": 4
+                        },
+                        "blur": 16,
+                        "spread": -2
+                      },
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": [
+                        16,
+                        12
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "VDv1h",
+                          "name": "Count Number",
+                          "fill": "$accent-purple",
+                          "content": "6",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 28,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "S8Ca3J",
+                          "name": "Count Label",
+                          "fill": "$accent-pink",
+                          "content": "Classic",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dQALg",
+                      "name": "8 Photos",
+                      "width": "fill_container",
+                      "height": 96,
+                      "fill": "#FFFFFF66",
+                      "cornerRadius": "$radius-md",
+                      "stroke": "#FFFFFF",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": [
+                        16,
+                        12
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "mGVpU",
+                          "name": "Count Number",
+                          "fill": "$text-primary",
+                          "content": "8",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 28,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "hBnsz",
+                          "name": "Count Label",
+                          "fill": "$text-muted",
+                          "content": "Full Set",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "ahsLz",
+              "name": "Room Summary",
+              "width": "fill_container",
+              "fill": "#FFFFFF80",
+              "cornerRadius": "$radius-md",
+              "stroke": "#FFFFFF",
+              "strokeWidth": 1,
+              "gap": 14,
+              "padding": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "hGbtp",
+                  "name": "Summary Icon",
+                  "width": 44,
+                  "height": 44,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 135,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$accent-pink",
+                        "position": 0
+                      },
+                      {
+                        "color": "$accent-purple",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 12,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "G3duaY",
+                      "name": "Link Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "link-2",
+                      "library": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "YxJQv",
+                  "name": "Summary Text",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 2,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "gFFKs",
+                      "name": "Summary Title",
+                      "fill": "$text-primary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Share a link after creating",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "vXcbi",
+                      "name": "Summary Desc",
+                      "fill": "$text-secondary",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Invite your partner or friends to join instantly",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "Wegiw",
+          "name": "Bottom CTA",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            0,
+            "$spacing-screen",
+            40,
+            "$spacing-screen"
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "HFb46",
+              "name": "Create Room Button",
+              "width": "fill_container",
+              "height": 56,
+              "fill": {
+                "type": "gradient",
+                "gradientType": "linear",
+                "enabled": true,
+                "rotation": 90,
+                "size": {
+                  "height": 1
+                },
+                "colors": [
+                  {
+                    "color": "$accent-pink",
+                    "position": 0
+                  },
+                  {
+                    "color": "$accent-purple",
+                    "position": 1
+                  }
+                ]
+              },
+              "cornerRadius": 28,
+              "effect": {
+                "type": "shadow",
+                "shadowType": "outer",
+                "color": "#A855F740",
+                "offset": {
+                  "x": 0,
+                  "y": 6
+                },
+                "blur": 20,
+                "spread": -2
+              },
+              "gap": 10,
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "KBn1z",
+                  "name": "Sparkles Icon",
+                  "width": 20,
+                  "height": 20,
+                  "icon": "sparkles",
+                  "library": "lucide",
+                  "fill": "#FFFFFF"
+                },
+                {
+                  "type": "text",
+                  "id": "VFnhH",
+                  "name": "Create Room Label",
+                  "fill": "#FFFFFF",
+                  "content": "Create Room",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "vs5Km",
+      "x": 1410,
+      "y": 0,
+      "name": "BoothTogether Create Room",
+      "clip": true,
+      "width": 390,
+      "height": 844,
+      "fill": {
+        "type": "gradient",
+        "gradientType": "linear",
+        "enabled": true,
+        "rotation": 180,
+        "size": {
+          "height": 1
+        },
+        "colors": [
+          {
+            "color": "#FDF2F8",
+            "position": 0
+          },
+          {
+            "color": "#F5E6FF",
+            "position": 0.45
+          },
+          {
+            "color": "#EDE9FE",
+            "position": 1
+          }
+        ]
+      },
+      "cornerRadius": 40,
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "q7GaVk",
+          "name": "Status Bar",
+          "width": "fill_container",
+          "height": 62,
+          "padding": [
+            0,
+            28
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "pGb8g",
+              "name": "Time",
+              "fill": "$text-primary",
+              "content": "9:41",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "YgOZT",
+              "name": "Status Icons",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon",
+                  "id": "P5f2Ul",
+                  "name": "Signal",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "signal",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                },
+                {
+                  "type": "icon",
+                  "id": "mY1Rl",
+                  "name": "Wifi",
+                  "width": 16,
+                  "height": 16,
+                  "icon": "wifi",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                },
+                {
+                  "type": "icon",
+                  "id": "owM6J",
+                  "name": "Battery",
+                  "width": 22,
+                  "height": 16,
+                  "icon": "battery-full",
+                  "library": "lucide",
+                  "fill": "$text-primary"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "GfAQ1",
+          "name": "Content Wrapper",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 28,
+          "padding": [
+            8,
+            "$spacing-screen",
+            32,
+            "$spacing-screen"
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "RBRp7",
+              "name": "Header",
+              "width": "fill_container",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "MJJXt",
+                  "name": "Back Button",
+                  "width": 40,
+                  "height": 40,
+                  "fill": "$surface-card",
+                  "cornerRadius": 20,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#A855F715",
+                    "offset": {
+                      "x": 0,
+                      "y": 2
+                    },
+                    "blur": 8,
+                    "spread": -2
+                  },
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "C3s68Q",
+                      "name": "Back Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "chevron-left",
+                      "library": "lucide",
+                      "fill": "$text-primary"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "ne4pk",
+                  "name": "Header Text",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 4,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "Gl8Tf",
+                      "name": "Screen Title",
+                      "fill": "$text-primary",
+                      "content": "Create Room",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 28,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "mayfr",
+                      "name": "Screen Subtitle",
+                      "fill": "$text-secondary",
+                      "content": "Set up your photobooth session",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GGsbc",
+              "name": "Theme Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "pzxxy",
+                  "name": "Theme Header",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "s893J",
+                      "name": "Theme Label",
+                      "fill": "$text-primary",
+                      "content": "Photobooth Theme",
+                      "fontFamily": "Playfair Display",
+                      "fontSize": 20,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "VfFsn",
+                      "name": "Theme Hint",
+                      "fill": "$text-muted",
+                      "content": "Swipe to browse",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "m4Z7KV",
+                  "name": "Theme Cards Row",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "ARrcR",
+                      "name": "Classic Theme Card",
+                      "width": 108,
+                      "layout": "vertical",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "MPrqo",
+                          "name": "Classic Preview",
+                          "clip": true,
+                          "width": 108,
+                          "height": 132,
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "./images/generated-1783838527701.png",
+                            "mode": "fill"
+                          },
+                          "cornerRadius": "$radius-md",
+                          "stroke": "#FFFFFF",
+                          "strokeWidth": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "aPXc4",
+                          "name": "Classic Label",
+                          "fill": "$text-secondary",
+                          "content": "Classic",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "t28HKT",
+                      "name": "Neon Party Theme Card",
+                      "width": 108,
+                      "layout": "vertical",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "ccQOu",
+                          "name": "Neon Party Preview",
+                          "clip": true,
+                          "width": 108,
+                          "height": 132,
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "./images/generated-1783838629414.png",
+                            "mode": "fill"
+                          },
+                          "cornerRadius": "$radius-md",
+                          "stroke": "#FFFFFF",
+                          "strokeWidth": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "u2J5lX",
+                          "name": "Neon Party Label",
+                          "fill": "$text-secondary",
+                          "content": "Neon Party",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "dkCcs",
+                      "name": "Romantic Theme Card",
+                      "width": 108,
+                      "layout": "vertical",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "I0Ep0",
+                          "name": "Romantic Preview",
+                          "clip": true,
+                          "width": 108,
+                          "height": 132,
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "./images/generated-1783838593732.png",
+                            "mode": "fill"
+                          },
+                          "cornerRadius": "$radius-md",
+                          "stroke": "$accent-purple",
+                          "strokeWidth": 2.5,
+                          "effect": {
+                            "type": "shadow",
+                            "shadowType": "outer",
+                            "color": "#A855F730",
+                            "offset": {
+                              "x": 0,
+                              "y": 4
+                            },
+                            "blur": 16,
+                            "spread": -2
+                          },
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "kYmjj",
+                              "layoutPosition": "absolute",
+                              "x": 76,
+                              "y": 8,
+                              "name": "Selected Badge",
+                              "width": 24,
+                              "height": 24,
+                              "fill": "$accent-purple",
+                              "cornerRadius": 12,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "icon",
+                                  "id": "DZkau",
+                                  "name": "Check Icon",
+                                  "width": 14,
+                                  "height": 14,
+                                  "icon": "check",
+                                  "library": "lucide",
+                                  "fill": "#FFFFFF"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "O0TEs7",
+                          "name": "Romantic Label",
+                          "fill": "$text-primary",
+                          "content": "Romantic",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "iBLHz",
+                      "name": "Film Strip Theme Card",
+                      "width": 108,
+                      "layout": "vertical",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "AOi7i",
+                          "name": "Film Strip Preview",
+                          "clip": true,
+                          "width": 108,
+                          "height": 132,
+                          "fill": {
+                            "type": "image",
+                            "enabled": true,
+                            "url": "./images/generated-1783838573120.png",
+                            "mode": "fill"
+                          },
+                          "cornerRadius": "$radius-md",
+                          "stroke": "#FFFFFF",
+                          "strokeWidth": 1
+                        },
+                        {
+                          "type": "text",
+                          "id": "sQwu1",
+                          "name": "Film Strip Label",
+                          "fill": "$text-secondary",
+                          "content": "Film Strip",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "rprWZ",
+              "name": "Photo Count Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "qCWAU",
+                  "name": "Photo Count Label",
+                  "fill": "$text-primary",
+                  "content": "Number of Photos",
+                  "fontFamily": "Playfair Display",
+                  "fontSize": 20,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "Cs4AM",
+                  "name": "Photo Count Cards",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "J9rvj",
+                      "name": "4 Photos Card",
+                      "width": "fill_container",
+                      "height": 108,
+                      "fill": "#FFFFFF80",
+                      "cornerRadius": "$radius-md",
+                      "stroke": "#E9D5FF",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "j2qsv",
+                          "name": "4 Number",
+                          "fill": "$text-primary",
+                          "content": "4",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 32,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "gsJ68",
+                          "name": "4 Sublabel",
+                          "fill": "$text-muted",
+                          "content": "Quick strip",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "QF6rC",
+                      "name": "6 Photos Card",
+                      "width": "fill_container",
+                      "height": 108,
+                      "fill": "$surface-card",
+                      "cornerRadius": "$radius-md",
+                      "stroke": "$accent-pink",
+                      "strokeWidth": 2,
+                      "effect": {
+                        "type": "shadow",
+                        "shadowType": "outer",
+                        "color": "#EC489920",
+                        "offset": {
+                          "x": 0,
+                          "y": 4
+                        },
+                        "blur": 12,
+                        "spread": -2
+                      },
+                      "layout": "vertical",
+                      "gap": 6,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n9gOm",
+                          "name": "6 Number",
+                          "fill": "$accent-purple",
+                          "content": "6",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 32,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "RhSYR",
+                          "name": "6 Sublabel",
+                          "fill": "$text-secondary",
+                          "content": "Classic set",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "KMO0M",
+                      "name": "8 Photos Card",
+                      "width": "fill_container",
+                      "height": 108,
+                      "fill": "#FFFFFF80",
+                      "cornerRadius": "$radius-md",
+                      "stroke": "#E9D5FF",
+                      "strokeWidth": 1,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n8LCJo",
+                          "name": "8 Number",
+                          "fill": "$text-primary",
+                          "content": "8",
+                          "fontFamily": "Playfair Display",
+                          "fontSize": 32,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "vN5sA",
+                          "name": "8 Sublabel",
+                          "fill": "$text-muted",
+                          "content": "Full session",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "pLNXx",
+              "name": "CTA Section",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "IbjRj",
+                  "name": "Summary Card",
+                  "width": "fill_container",
+                  "fill": "#FFFFFF80",
+                  "cornerRadius": "$radius-md",
+                  "stroke": "#FFFFFF",
+                  "strokeWidth": 1,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "jwQOK",
+                      "name": "Summary Row",
+                      "width": "fill_container",
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "ILo3o",
+                          "name": "Summary Theme",
+                          "fill": "$text-secondary",
+                          "content": "Romantic theme",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "pey2r",
+                          "name": "Summary Photos",
+                          "fill": "$accent-purple",
+                          "content": "6 photos",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "A5KPM9",
+                      "name": "Summary Note",
+                      "fill": "$text-muted",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Your partner will join with a room code after creation.",
+                      "lineHeight": 1.4,
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "GKHdh",
+                  "name": "Create Room Button",
+                  "width": "fill_container",
+                  "height": 56,
+                  "fill": {
+                    "type": "gradient",
+                    "gradientType": "linear",
+                    "enabled": true,
+                    "rotation": 90,
+                    "size": {
+                      "height": 1
+                    },
+                    "colors": [
+                      {
+                        "color": "$accent-pink",
+                        "position": 0
+                      },
+                      {
+                        "color": "$accent-purple",
+                        "position": 1
+                      }
+                    ]
+                  },
+                  "cornerRadius": 28,
+                  "effect": {
+                    "type": "shadow",
+                    "shadowType": "outer",
+                    "color": "#A855F740",
+                    "offset": {
+                      "x": 0,
+                      "y": 6
+                    },
+                    "blur": 20,
+                    "spread": -2
+                  },
+                  "gap": 10,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "icon",
+                      "id": "W7CJMR",
+                      "name": "Camera Icon",
+                      "width": 20,
+                      "height": 20,
+                      "icon": "camera",
+                      "library": "lucide",
+                      "fill": "#FFFFFF"
+                    },
+                    {
+                      "type": "text",
+                      "id": "c6Pcb",
+                      "name": "Create Room Label",
+                      "fill": "#FFFFFF",
+                      "content": "Create Room",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": "600"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variables": {
+    "bg-pink": {
+      "type": "color",
+      "value": "#FDF2F8"
+    },
+    "bg-purple": {
+      "type": "color",
+      "value": "#EDE9FE"
+    },
+    "accent-pink": {
+      "type": "color",
+      "value": "#EC4899"
+    },
+    "accent-purple": {
+      "type": "color",
+      "value": "#A855F7"
+    },
+    "text-primary": {
+      "type": "color",
+      "value": "#1E1B2E"
+    },
+    "text-secondary": {
+      "type": "color",
+      "value": "#6B6280"
+    },
+    "text-muted": {
+      "type": "color",
+      "value": "#9B93A8"
+    },
+    "surface-card": {
+      "type": "color",
+      "value": "#FFFFFF"
+    },
+    "radius-lg": {
+      "type": "number",
+      "value": 24
+    },
+    "radius-md": {
+      "type": "number",
+      "value": 16
+    },
+    "spacing-screen": {
+      "type": "number",
+      "value": 24
+    }
+  },
+  "fileToken": "af29332e-5494-4531-904f-577dc044376e"
+}

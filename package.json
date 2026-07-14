@@ -1,0 +1,21 @@
+{
+  "name": "booth2gether",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Real-time online photobooth web application",
+  "scripts": {
+    "dev": "pnpm --filter @booth2gether/backend dev & pnpm --filter @booth2gether/frontend dev",
+    "dev:frontend": "pnpm --filter @booth2gether/frontend dev",
+    "dev:backend": "pnpm --filter @booth2gether/backend dev",
+    "build": "pnpm --filter @booth2gether/shared build && pnpm --filter @booth2gether/backend build && pnpm --filter @booth2gether/frontend build",
+    "lint": "pnpm -r lint",
+    "db:generate": "pnpm --filter @booth2gether/backend db:generate",
+    "db:migrate": "pnpm --filter @booth2gether/backend db:migrate",
+    "db:studio": "pnpm --filter @booth2gether/backend db:studio",
+    "db:push": "pnpm --filter @booth2gether/backend db:push"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=9.0.0"
+  }
+}

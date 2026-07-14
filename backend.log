@@ -1,0 +1,21 @@
+Scope: all 4 workspace projects
+✓ Lockfile passes supply-chain policies (verified 41m ago)
+Lockfile is up to date, resolution step is skipped
+Already up to date
+
+[ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: @scarf/scarf@1.4.0
+
+Run "pnpm approve-builds" to pick which dependencies should be allowed to run scripts.
+[ERROR] Command failed with exit code 1: "C:\Program Files\nodejs\node.exe" "C:\Users\Hp\AppData\Roaming\npm\node_modules\pnpm\bin\pnpm.mjs" install
+
+pnpm: Command failed with exit code 1: "C:\Program Files\nodejs\node.exe" "C:\Users\Hp\AppData\Roaming\npm\node_modules\pnpm\bin\pnpm.mjs" install
+    at getFinalError (file:///C:/Users/Hp/AppData/Roaming/npm/node_modules/pnpm/dist/pnpm.mjs:34291:14)
+    at makeError (file:///C:/Users/Hp/AppData/Roaming/npm/node_modules/pnpm/dist/pnpm.mjs:36598:21)
+    at getSyncResult (file:///C:/Users/Hp/AppData/Roaming/npm/node_modules/pnpm/dist/pnpm.mjs:38442:10)
+    at spawnSubprocessSync (file:///C:/Users/Hp/AppData/Roaming/npm/node_modules/pnpm/dist/pnpm.mjs:38402:14)
+    at execaCoreSync (file:///C:/Users/Hp/AppData/Roaming/npm/node_modules/pnpm/dist/pnpm.mjs:38332:23)
+    at callBoundExeca (file:///C:/Users/Hp/AppData/Roaming/npm/node_modules/pnpm/dist/pnpm.mjs:40860:23)
+    at boundExeca (file:///C:/Users/Hp/AppData/Roaming/npm/node_modules/pnpm/dist/pnpm.mjs:40837:49)
+    at sync (file:///C:/Users/Hp/AppData/Roaming/npm/node_modules/pnpm/dist/pnpm.mjs:40996:10)
+    at runPnpmCli (file:///C:/Users/Hp/AppData/Roaming/npm/node_modules/pnpm/dist/pnpm.mjs:247126:5)
+    at runDepsStatusCheck (file:///C:/Users/Hp/AppData/Roaming/npm/node_modules/pnpm/dist/pnpm.mjs:248869:7)
