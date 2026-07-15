@@ -31,8 +31,11 @@ async function downloadImage(url: string): Promise<Buffer> {
     return fs.readFileSync(filePath);
   }
   const response = await fetch(url);
-  if (!response.ok) throw new Error(`Failed to download: ${url}`);
-  return Buffer.from(await response.arrayBuffer());
+  if (response.status < 200 || response.status >= 300) {
+    throw new Error(`Failed to download: ${url}`);
+  }
+  const arrayBuffer = await (response as { arrayBuffer(): Promise<ArrayBuffer> }).arrayBuffer();
+  return Buffer.from(arrayBuffer);
 }
 
 async function roundCorners(input: Buffer, radius: number): Promise<Buffer> {
