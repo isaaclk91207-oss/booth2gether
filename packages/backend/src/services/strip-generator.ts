@@ -30,12 +30,10 @@ async function downloadImage(url: string): Promise<Buffer> {
     const filePath = path.resolve(url.slice(1));
     return fs.readFileSync(filePath);
   }
-  const response = await fetch(url);
-  if (response.status < 200 || response.status >= 300) {
-    throw new Error(`Failed to download: ${url}`);
-  }
-  const arrayBuffer = await (response as { arrayBuffer(): Promise<ArrayBuffer> }).arrayBuffer();
-  return Buffer.from(arrayBuffer);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const response: any = await fetch(url);
+  if (!response.ok) throw new Error(`Failed to download: ${url}`);
+  return Buffer.from(await response.arrayBuffer());
 }
 
 async function roundCorners(input: Buffer, radius: number): Promise<Buffer> {
