@@ -1,8 +1,7 @@
 {
-  "installCommand": "node -e \"const fs=require('fs');let c=fs.readFileSync('pnpm-workspace.yaml','utf8');c=c.replace('packages/*','packages/shared\\n  - packages/frontend');fs.writeFileSync('pnpm-workspace.yaml',c)\" && pnpm install --no-frozen-lockfile",
-  "buildCommand": "pnpm --filter @booth2gether/shared build && pnpm --filter @booth2gether/frontend build",
-  "outputDirectory": "packages/frontend/.next",
   "framework": "nextjs",
+  "outputDirectory": "packages/frontend/.next",
+  "buildCommand": "pnpm --filter @booth2gether/shared build && pnpm --filter @booth2gether/frontend build",
   "rewrites": [
     {
       "source": "/uploads/:path*",
