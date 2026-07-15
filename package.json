@@ -15,6 +15,9 @@
     "db:studio": "pnpm --filter @booth2gether/backend db:studio",
     "db:push": "pnpm --filter @booth2gether/backend db:push"
   },
+  "devDependencies": {
+    "next": "^15.1.0"
+  },
   "engines": {
     "node": ">=18.0.0",
     "pnpm": ">=9.0.0"
