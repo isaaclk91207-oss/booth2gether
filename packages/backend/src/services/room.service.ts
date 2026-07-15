@@ -26,6 +26,9 @@ export class RoomService {
     });
 
     const host = room.users[0];
+    if (!host) {
+      throw new RoomNotFoundError();
+    }
 
     await prisma.room.update({
       where: { id: room.id },

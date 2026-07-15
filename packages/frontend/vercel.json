@@ -1,7 +1,7 @@
 {
-  "buildCommand": "cd ../shared && pnpm build && cd ../frontend && pnpm build",
+  "buildCommand": "cd ../../ && pnpm --filter @booth2gether/shared build && pnpm --filter @booth2gether/frontend build",
   "outputDirectory": ".next",
-  "installCommand": "pnpm install",
+  "installCommand": "cd ../../ && pnpm install --frozen-lockfile",
   "framework": "nextjs",
   "rewrites": [
     {

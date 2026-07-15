@@ -19,9 +19,9 @@ export async function uploadPhoto(req: Request, res: Response) {
 
     const photo = await photoService.uploadPhoto(
       file,
-      roomCode,
-      userId,
-      parseInt(shotIndex, 10),
+      roomCode as string,
+      userId as string,
+      parseInt(shotIndex as string, 10),
     );
 
     res.status(201).json({ photo });
@@ -37,7 +37,7 @@ export async function uploadPhoto(req: Request, res: Response) {
 
 export async function getRoomPhotos(req: Request, res: Response) {
   try {
-    const { roomCode } = req.params;
+    const roomCode = req.params.roomCode as string;
     const photos = await photoService.getRoomPhotos(roomCode);
     res.json({ photos });
   } catch (error) {
@@ -58,7 +58,7 @@ export async function generateStrip(req: Request, res: Response) {
       return;
     }
 
-    const stripUrl = await photoService.generateStrip(roomCode);
+    const stripUrl = await photoService.generateStrip(roomCode as string);
     res.json({ stripUrl });
   } catch (error) {
     if (error instanceof PhotoUploadError) {
@@ -72,7 +72,7 @@ export async function generateStrip(req: Request, res: Response) {
 
 export async function getResult(req: Request, res: Response) {
   try {
-    const { roomCode } = req.params;
+    const roomCode = req.params.roomCode as string;
     const result = await photoService.getResult(roomCode);
     res.json(result);
   } catch (error) {

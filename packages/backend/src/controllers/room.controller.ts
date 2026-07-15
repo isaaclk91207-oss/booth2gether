@@ -1,4 +1,4 @@
-import { Request, Response, NextFunction } from 'express';
+import type { Request, Response, NextFunction } from 'express';
 import { RoomService } from '../services/room.service';
 
 const roomService = new RoomService();
@@ -27,7 +27,7 @@ export async function createRoom(req: Request, res: Response, next: NextFunction
 
 export async function getRoom(req: Request, res: Response, next: NextFunction) {
   try {
-    const { code } = req.params;
+    const code = req.params.code as string;
 
     if (!code || code.length !== 6) {
       res.status(400).json({ error: 'Invalid room code' });
@@ -43,7 +43,7 @@ export async function getRoom(req: Request, res: Response, next: NextFunction) {
 
 export async function joinRoom(req: Request, res: Response, next: NextFunction) {
   try {
-    const { code } = req.params;
+    const code = req.params.code as string;
     const { guestName } = req.body;
 
     if (!code || code.length !== 6) {
@@ -71,7 +71,7 @@ export async function joinRoom(req: Request, res: Response, next: NextFunction) 
 
 export async function closeRoom(req: Request, res: Response, next: NextFunction) {
   try {
-    const { code } = req.params;
+    const code = req.params.code as string;
 
     if (!code || code.length !== 6) {
       res.status(400).json({ error: 'Invalid room code' });

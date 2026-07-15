@@ -68,17 +68,21 @@ async function createPhotoGrid(
   const composites: sharp.OverlayOptions[] = [];
 
   for (let i = 0; i < Math.min(sorted.length, 4); i++) {
-    const imgBuffer = await downloadImage(sorted[i].url);
+    const photo = sorted[i];
+    if (!photo) continue;
+    const imgBuffer = await downloadImage(photo.url);
     const resized = await sharp(imgBuffer)
       .resize(cellWidth, cellHeight, { fit: 'cover' })
       .toBuffer();
 
     const rounded = await roundCorners(resized, BORDER_RADIUS);
+    const pos = positions[i];
+    if (!pos) continue;
 
     composites.push({
       input: rounded,
-      left: positions[i].x,
-      top: positions[i].y,
+      left: pos.x,
+      top: pos.y,
     });
   }
 
