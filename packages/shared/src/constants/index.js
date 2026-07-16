@@ -1,4 +1,7 @@
-export const ROOM_STATES = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ROOM_CODE_CHARS = exports.ROOM_CODE_LENGTH = exports.DISCONNECT_TIMEOUT_SECONDS = exports.TOTAL_SHOTS = exports.SHOT_INTERVAL_MS = exports.COUNTDOWN_DURATION = exports.ROOM_MAX_USERS = exports.USER_ROLES = exports.ROOM_STATES = void 0;
+exports.ROOM_STATES = {
     WAITING: 'WAITING',
     JOINED: 'JOINED',
     READY: 'READY',
@@ -7,15 +10,15 @@ export const ROOM_STATES = {
     COMPLETED: 'COMPLETED',
     CLOSED: 'CLOSED',
 };
-export const USER_ROLES = {
+exports.USER_ROLES = {
     HOST: 'HOST',
     GUEST: 'GUEST',
 };
-export const ROOM_MAX_USERS = 2;
-export const COUNTDOWN_DURATION = 3;
-export const SHOT_INTERVAL_MS = 2000;
-export const TOTAL_SHOTS = 4;
-export const DISCONNECT_TIMEOUT_SECONDS = 30;
-export const ROOM_CODE_LENGTH = 6;
-export const ROOM_CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+exports.ROOM_MAX_USERS = 2;
+exports.COUNTDOWN_DURATION = 3;
+exports.SHOT_INTERVAL_MS = 2000;
+exports.TOTAL_SHOTS = 4;
+exports.DISCONNECT_TIMEOUT_SECONDS = 30;
+exports.ROOM_CODE_LENGTH = 6;
+exports.ROOM_CODE_CHARS = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 //# sourceMappingURL=index.js.map

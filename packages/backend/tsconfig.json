@@ -1,7 +1,10 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
     "outDir": "./dist",
+    "rootDir": "./src",
     "baseUrl": ".",
     "declaration": false,
     "declarationMap": false,
@@ -10,8 +13,7 @@
     "noImplicitAny": false,
     "skipLibCheck": true,
     "paths": {
-      "@/*": ["./src/*"],
-      "@booth2gether/shared": ["../shared/src"]
+      "@/*": ["./src/*"]
     }
   },
   "include": ["src/**/*"]
