@@ -34,6 +34,7 @@ export default function JoinRoomWithCodePage() {
     try {
       const { room, user } = await api.joinRoom(code, name.trim());
       setLocalUser(user);
+      useRoomStore.getState().setRoom(room);
 
       const socket = getSocket();
       socket.emit('join-room', {

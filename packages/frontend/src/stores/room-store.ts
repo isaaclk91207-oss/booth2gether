@@ -24,6 +24,11 @@ function saveSession(localUser: User | null, roomCode: string | null) {
   }
 }
 
+function clearSession() {
+  if (typeof window === 'undefined') return;
+  localStorage.removeItem(STORAGE_KEY);
+}
+
 export interface RoomStore {
   room: Room | null;
   users: User[];
@@ -47,23 +52,22 @@ export interface RoomStore {
   reset: () => void;
 }
 
-export const useRoomStore = create<RoomStore>((set, get) => {
-  const initial = loadSession();
+const initial = loadSession();
 
-  return {
-    room: null,
-    users: [],
-    localUser: initial.localUser,
-    remoteUser: null,
-    isConnected: false,
-    countdown: null,
-    currentShot: 0,
-    isSessionStarted: false,
+export const useRoomStore = create<RoomStore>((set, get) => ({
+  room: null,
+  users: [],
+  localUser: initial.localUser,
+  remoteUser: null,
+  isConnected: false,
+  countdown: null,
+  currentShot: 0,
+  isSessionStarted: false,
 
-    setRoom: (room) => {
-      set({ room });
-      saveSession(get().localUser, room.code);
-    },
+  setRoom: (room) => {
+    set({ room });
+    saveSession(get().localUser, room.code);
+  },
 
   setUsers: (users) => {
     const localUser = get().localUser;
@@ -91,10 +95,12 @@ export const useRoomStore = create<RoomStore>((set, get) => {
 
   setLocalUser: (user) => {
     set((state) => {
-      const remoteUser = state.users.find((u) => u.id !== user.id) || null;
-      const roomCode = state.room?.code || getRoomCodeFromStorage();
+      const roomCode = state.room?.code || null;
       saveSession(user, roomCode);
-      return { localUser: user, remoteUser };
+      return {
+        localUser: user,
+        remoteUser: state.users.find((u) => u.id !== user.id) || null,
+      };
     });
   },
 
@@ -116,14 +122,17 @@ export const useRoomStore = create<RoomStore>((set, get) => {
 
   setSessionStarted: (started) => set({ isSessionStarted: started }),
 
-  reset: () => set({
-    room: null,
-    users: [],
-    localUser: null,
-    remoteUser: null,
-    isConnected: false,
-    countdown: null,
-    currentShot: 0,
-    isSessionStarted: false,
-  }),
+  reset: () => {
+    clearSession();
+    set({
+      room: null,
+      users: [],
+      localUser: null,
+      remoteUser: null,
+      isConnected: false,
+      countdown: null,
+      currentShot: 0,
+      isSessionStarted: false,
+    });
+  },
 }));

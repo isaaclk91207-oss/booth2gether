@@ -31,6 +31,7 @@ export default function CreateRoomPage() {
     try {
       const { room, user } = await api.createRoom(name.trim());
       setLocalUser(user);
+      useRoomStore.getState().setRoom(room);
 
       const socket = getSocket();
       socket.emit('join-room', {
