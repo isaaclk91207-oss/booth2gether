@@ -25,8 +25,13 @@ export default function RoomPage() {
   const localUser = useRoomStore((s) => s.localUser);
   const remoteUser = useRoomStore((s) => s.remoteUser);
   const updateReadyStatus = useRoomStore((s) => s.updateReadyStatus);
+  const hydrateSession = useRoomStore((s) => s.hydrateSession);
 
   useSocket();
+
+  useEffect(() => {
+    hydrateSession();
+  }, []);
   const { emitJoin, emitReady, emitStartSession, emitLeave } = useRoomSocket(code);
 
   const {
@@ -81,6 +86,9 @@ export default function RoomPage() {
   useEffect(() => {
     if (!localUser && code) {
       setError('No user session found. Please create or join a room first.');
+    }
+    if (localUser) {
+      setError('');
     }
   }, [localUser, code]);
 

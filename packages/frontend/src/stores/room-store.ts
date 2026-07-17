@@ -49,6 +49,7 @@ export interface RoomStore {
   setCountdown: (count: number | null) => void;
   setCurrentShot: (shot: number) => void;
   setSessionStarted: (started: boolean) => void;
+  hydrateSession: () => void;
   reset: () => void;
 }
 
@@ -121,6 +122,18 @@ export const useRoomStore = create<RoomStore>((set, get) => ({
   setCurrentShot: (shot) => set({ currentShot: shot }),
 
   setSessionStarted: (started) => set({ isSessionStarted: started }),
+
+  hydrateSession: () => {
+    const session = loadSession();
+    if (session.localUser && session.roomCode) {
+      set((state) => {
+        if (state.localUser) return state;
+        return {
+          localUser: session.localUser,
+        };
+      });
+    }
+  },
 
   reset: () => {
     clearSession();

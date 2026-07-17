@@ -30,6 +30,7 @@ export default function CapturePage() {
 
   const localUser = useRoomStore((s) => s.localUser);
   const remoteUser = useRoomStore((s) => s.remoteUser);
+  const hydrateSession = useRoomStore((s) => s.hydrateSession);
 
   const {
     localStream,
@@ -46,6 +47,10 @@ export default function CapturePage() {
   const remoteVideoRefCapture = useRef<HTMLVideoElement | null>(null);
 
   const isHost = localUser?.role === 'HOST';
+
+  useEffect(() => {
+    hydrateSession();
+  }, []);
 
   useEffect(() => {
     if (localUser) {
