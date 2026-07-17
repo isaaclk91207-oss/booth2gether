@@ -16,6 +16,7 @@ import {
 } from '@/components/ui/dialog';
 import { Logo } from '@/components/shared/logo';
 import { useSocket } from '@/hooks/useSocket';
+import { getSocket } from '@/lib/socket';
 import { api } from '@/lib/api';
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
@@ -48,8 +49,7 @@ export default function ResultPage() {
   }, [code]);
 
   useEffect(() => {
-    const socket = (window as any).__socket;
-    if (!socket) return;
+    const socket = getSocket();
 
     function onStripReady(payload: { stripUrl: string }) {
       setStripUrl(payload.stripUrl);
@@ -64,6 +64,11 @@ export default function ResultPage() {
   const shareUrl = typeof window !== 'undefined'
     ? `${window.location.origin}/join/${code}`
     : `/join/${code}`;
+
+  const getPhotoUrl = (imageUrl: string) => {
+    if (imageUrl.startsWith('http')) return imageUrl;
+    return `${API_BASE_URL}${imageUrl}`;
+  };
 
   const handleCopyLink = async () => {
     try {
@@ -143,7 +148,7 @@ export default function ResultPage() {
             {photos.slice(0, 4).map((photo, i) => (
               <img
                 key={photo.id}
-                src={photo.imageUrl}
+                src={getPhotoUrl(photo.imageUrl)}
                 alt={`Shot ${i + 1}`}
                 className="h-20 w-16 rounded object-cover"
               />

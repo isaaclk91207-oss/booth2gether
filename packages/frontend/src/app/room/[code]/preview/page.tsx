@@ -6,7 +6,10 @@ import { Loader2 } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { useSocket } from '@/hooks/useSocket';
 import { useRoomSocket } from '@/hooks/useRoomSocket';
+import { getSocket } from '@/lib/socket';
 import { api } from '@/lib/api';
+
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
 export default function PreviewPage() {
   const router = useRouter();
@@ -26,8 +29,7 @@ export default function PreviewPage() {
   }, [code]);
 
   useEffect(() => {
-    const socket = (window as any).__socket;
-    if (!socket) return;
+    const socket = getSocket();
 
     function onProcessingStarted() {
       setIsProcessing(true);
@@ -52,6 +54,11 @@ export default function PreviewPage() {
   const totalExpected = 8;
   const progress = Math.min((photos.length / totalExpected) * 100, 100);
 
+  const getPhotoUrl = (imageUrl: string) => {
+    if (imageUrl.startsWith('http')) return imageUrl;
+    return `${API_BASE_URL}${imageUrl}`;
+  };
+
   return (
     <div className="flex min-h-screen flex-col items-center justify-center p-4">
       <Card className="w-full max-w-md">
@@ -72,7 +79,7 @@ export default function PreviewPage() {
                 >
                   {photo ? (
                     <img
-                      src={photo.imageUrl}
+                      src={getPhotoUrl(photo.imageUrl)}
                       alt={`Photo ${i + 1}`}
                       className="h-full w-full object-cover"
                     />
