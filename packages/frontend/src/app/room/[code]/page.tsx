@@ -24,6 +24,7 @@ export default function RoomPage() {
 
   const localUser = useRoomStore((s) => s.localUser);
   const remoteUser = useRoomStore((s) => s.remoteUser);
+  const updateReadyStatus = useRoomStore((s) => s.updateReadyStatus);
 
   useSocket();
   const { emitJoin, emitReady, emitStartSession, emitLeave } = useRoomSocket(code);
@@ -46,6 +47,7 @@ export default function RoomPage() {
 
   useEffect(() => {
     if (localUser) {
+      setLocalReady(localUser.isReady);
       emitJoin(localUser.id);
       startLocalStream().catch(() => {});
     }
@@ -61,6 +63,9 @@ export default function RoomPage() {
     const newReady = !localReady;
     setLocalReady(newReady);
     emitReady(newReady);
+    if (localUser) {
+      updateReadyStatus(localUser.id, newReady);
+    }
   };
 
   const handleStart = () => {

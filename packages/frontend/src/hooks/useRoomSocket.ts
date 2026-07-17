@@ -1,12 +1,14 @@
 'use client';
 
-import { useEffect, useCallback } from 'react';
+import { useEffect, useCallback, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import { getSocket } from '@/lib/socket';
 import { useRoomStore } from '@/stores/room-store';
 
 export function useRoomSocket(roomCode: string) {
   const router = useRouter();
+  const routerRef = useRef(router);
+  routerRef.current = router;
   const setRoom = useRoomStore((s) => s.setRoom);
   const setUsers = useRoomStore((s) => s.setUsers);
   const addUser = useRoomStore((s) => s.addUser);
@@ -68,11 +70,11 @@ export function useRoomSocket(roomCode: string) {
     }
 
     function onCountdownStart() {
-      router.push(`/room/${roomCode}/capture`);
+      routerRef.current.push(`/room/${roomCode}/capture`);
     }
 
     function onRoomClosed() {
-      router.push('/');
+      routerRef.current.push('/');
     }
 
     function onError(payload: { message: string }) {
@@ -96,7 +98,7 @@ export function useRoomSocket(roomCode: string) {
       socket.off('room-closed', onRoomClosed);
       socket.off('error', onError);
     };
-  }, [roomCode, router, setRoom, setUsers, addUser, removeUser, updateReadyStatus]);
+  }, [roomCode, setRoom, setUsers, addUser, removeUser, updateReadyStatus]);
 
   return {
     emitJoin,
