@@ -28,20 +28,24 @@ const BORDER_RADIUS = 8;
 async function downloadImage(url: string): Promise<Buffer> {
   if (url.startsWith('/uploads/')) {
     const filePath = path.resolve(url.slice(1));
-    return fs.readFileSync(filePath);
+    const data = fs.readFileSync(filePath);
+    if (data.length === 0) throw new Error(`Empty file: ${filePath}`);
+    return data;
   }
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const response: any = await fetch(url);
   if (!response.ok) throw new Error(`Failed to download: ${url}`);
-  return Buffer.from(await response.arrayBuffer());
+  const data = Buffer.from(await response.arrayBuffer());
+  if (data.length === 0) throw new Error(`Empty response: ${url}`);
+  return data;
 }
 
-async function roundCorners(input: Buffer, radius: number): Promise<Buffer> {
+async function roundCorners(input: Buffer, radius: number, width: number, height: number): Promise<Buffer> {
   return sharp(input)
-    .resize({ fit: 'cover' })
+    .resize(width, height, { fit: 'cover' })
     .composite([{
       input: Buffer.from(
-        `<svg><rect width="100%" height="100%" rx="${radius}" ry="${radius}"/></svg>`
+        `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}"><rect width="${width}" height="${height}" rx="${radius}" ry="${radius}"/></svg>`
       ),
       blend: 'dest-in',
     }])
@@ -76,7 +80,7 @@ async function createPhotoGrid(
       .resize(cellWidth, cellHeight, { fit: 'cover' })
       .toBuffer();
 
-    const rounded = await roundCorners(resized, BORDER_RADIUS);
+    const rounded = await roundCorners(resized, BORDER_RADIUS, cellWidth, cellHeight);
     const pos = positions[i];
     if (!pos) continue;
 
