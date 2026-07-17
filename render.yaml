@@ -3,7 +3,7 @@ services:
     name: booth2gether-api
     runtime: node
     plan: free
-    buildCommand: cd ../shared && pnpm install && pnpm build && cd ../backend && pnpm install && pnpm db:generate && pnpm db:push && pnpm build
+    buildCommand: cd ../shared && pnpm install && pnpm build && cd ../backend && pnpm install && pnpm db:generate && pnpm db:push --accept-data-loss && pnpm build
     startCommand: pnpm start
     envVars:
       - key: NODE_ENV

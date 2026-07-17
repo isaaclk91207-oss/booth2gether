@@ -36,17 +36,32 @@ export default function CapturePage() {
     remoteStream,
     error: webrtcError,
     startLocalStream,
+    call,
   } = useWebRTC();
 
   useSocket();
-  const { emitCapture } = useRoomSocket(code);
+  const { emitJoin, emitCapture } = useRoomSocket(code);
 
   const localVideoRefCapture = useRef<HTMLVideoElement | null>(null);
   const remoteVideoRefCapture = useRef<HTMLVideoElement | null>(null);
 
+  const isHost = localUser?.role === 'HOST';
+
   useEffect(() => {
-    startLocalStream().catch(() => {});
-  }, []);
+    if (localUser) {
+      emitJoin(localUser.id);
+      startLocalStream().catch(() => {});
+    }
+  }, [localUser]);
+
+  useEffect(() => {
+    if (localUser && localStream && remoteUser && !isHost) {
+      const timer = setTimeout(() => {
+        call(code);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [localUser, localStream, remoteUser, isHost, code, call]);
 
   useEffect(() => {
     if (localStream && localVideoRefCapture.current) {
