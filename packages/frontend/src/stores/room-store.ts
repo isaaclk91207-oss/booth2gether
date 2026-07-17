@@ -1,6 +1,29 @@
 import { create } from 'zustand';
 import type { Room, User } from '@booth2gether/shared';
 
+const STORAGE_KEY = 'booth2gether_session';
+
+function loadSession(): { localUser: User | null; roomCode: string | null } {
+  if (typeof window === 'undefined') return { localUser: null, roomCode: null };
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (!raw) return { localUser: null, roomCode: null };
+    const data = JSON.parse(raw);
+    return { localUser: data.localUser || null, roomCode: data.roomCode || null };
+  } catch {
+    return { localUser: null, roomCode: null };
+  }
+}
+
+function saveSession(localUser: User | null, roomCode: string | null) {
+  if (typeof window === 'undefined') return;
+  if (localUser && roomCode) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ localUser, roomCode }));
+  } else {
+    localStorage.removeItem(STORAGE_KEY);
+  }
+}
+
 export interface RoomStore {
   room: Room | null;
   users: User[];
@@ -24,17 +47,23 @@ export interface RoomStore {
   reset: () => void;
 }
 
-export const useRoomStore = create<RoomStore>((set, get) => ({
-  room: null,
-  users: [],
-  localUser: null,
-  remoteUser: null,
-  isConnected: false,
-  countdown: null,
-  currentShot: 0,
-  isSessionStarted: false,
+export const useRoomStore = create<RoomStore>((set, get) => {
+  const initial = loadSession();
 
-  setRoom: (room) => set({ room }),
+  return {
+    room: null,
+    users: [],
+    localUser: initial.localUser,
+    remoteUser: null,
+    isConnected: false,
+    countdown: null,
+    currentShot: 0,
+    isSessionStarted: false,
+
+    setRoom: (room) => {
+      set({ room });
+      saveSession(get().localUser, room.code);
+    },
 
   setUsers: (users) => {
     const localUser = get().localUser;
@@ -61,10 +90,12 @@ export const useRoomStore = create<RoomStore>((set, get) => ({
   },
 
   setLocalUser: (user) => {
-    set((state) => ({
-      localUser: user,
-      remoteUser: state.users.find((u) => u.id !== user.id) || null,
-    }));
+    set((state) => {
+      const remoteUser = state.users.find((u) => u.id !== user.id) || null;
+      const roomCode = state.room?.code || getRoomCodeFromStorage();
+      saveSession(user, roomCode);
+      return { localUser: user, remoteUser };
+    });
   },
 
   updateReadyStatus: (userId, isReady) => {
