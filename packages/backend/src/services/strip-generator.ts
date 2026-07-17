@@ -105,6 +105,15 @@ function formatDate(date: Date): string {
   return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
 }
 
+function escapeXml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
 export async function generatePhotoStrip(options: GenerateStripOptions): Promise<string> {
   const {
     roomId,
@@ -128,8 +137,8 @@ export async function generatePhotoStrip(options: GenerateStripOptions): Promise
   const totalHeight = HEADER_HEIGHT + gridHeight * 2 + PHOTO_GAP * 3 + FOOTER_HEIGHT + GRID_PADDING * 2;
   const totalWidth = STRIP_WIDTH;
 
-  const dateStr = formatDate(new Date());
-  const titleText = `${hostName} & ${guestName}`;
+  const dateStr = escapeXml(formatDate(new Date()));
+  const titleText = escapeXml(`${hostName} & ${guestName}`);
 
   const svgOverlay = Buffer.from(`
     <svg width="${totalWidth}" height="${totalHeight}">
