@@ -87,16 +87,29 @@ export default function ResultPage() {
     }
   };
 
-  const handleDownload = () => {
+  const handleDownload = async () => {
     if (!stripUrl) return;
-    const link = document.createElement('a');
-    link.href = `${API_BASE_URL}${stripUrl}`;
-    link.download = `booth2gether-${code}.png`;
-    link.target = '_blank';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    try {
+      const response = await fetch(`${API_BASE_URL}${stripUrl}`);
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `booth2gether-${code}.png`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch {
+      window.open(`${API_BASE_URL}${stripUrl}`, '_blank');
+    }
   };
+
+  useEffect(() => {
+    if (stripUrl) {
+      handleDownload();
+    }
+  }, [stripUrl]);
 
   if (isLoading) {
     return (
