@@ -28,6 +28,7 @@ export function CameraPreview({
         muted={isLocal}
         className={cn(
           'h-full w-full object-cover',
+          isLocal && 'scale-x-[-1]',
           (!hasStream || error) && 'hidden',
         )}
       />
