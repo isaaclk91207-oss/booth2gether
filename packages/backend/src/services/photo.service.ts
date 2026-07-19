@@ -68,8 +68,12 @@ export class PhotoService {
     });
     if (!room) throw new PhotoUploadError('Room not found', 404);
 
-    if (room.photos.length < 8) {
-      throw new PhotoUploadError('Not all photos uploaded yet', 400);
+    const selectedPhotos = room.photos
+      .filter((p) => p.selected)
+      .sort((a, b) => a.order - b.order);
+
+    if (selectedPhotos.length === 0) {
+      throw new PhotoUploadError('No photos selected', 400);
     }
 
     const host = room.users.find((u) => u.role === 'HOST');
@@ -79,30 +83,17 @@ export class PhotoService {
       throw new PhotoUploadError('Both users must be in the room', 400);
     }
 
-    const hostPhotos = room.photos
-      .filter((p) => p.userId === host.id)
-      .sort((a, b) => a.shotIndex - b.shotIndex)
-      .map((p) => ({
-        url: p.imageUrl,
-        userId: p.userId,
-        shotIndex: p.shotIndex,
-      }));
-
-    const guestPhotos = room.photos
-      .filter((p) => p.userId === guest.id)
-      .sort((a, b) => a.shotIndex - b.shotIndex)
-      .map((p) => ({
-        url: p.imageUrl,
-        userId: p.userId,
-        shotIndex: p.shotIndex,
-      }));
+    const photos = selectedPhotos.map((p) => ({
+      url: p.imageUrl,
+      userId: p.userId,
+      shotIndex: p.shotIndex,
+    }));
 
     const stripUrl = await generatePhotoStrip({
       roomId: room.id,
       hostName: host.name,
       guestName: guest.name,
-      hostPhotos,
-      guestPhotos,
+      photos,
     });
 
     await prisma.room.update({
@@ -143,12 +134,34 @@ export class PhotoService {
         updatedAt: room.updatedAt.toISOString(),
       },
       photos: room.photos
-        .sort((a, b) => a.shotIndex - b.shotIndex)
+        .sort((a, b) => a.order - b.order)
         .map((p) => this.formatPhoto(p)),
       stripUrl: room.stripUrl,
       host: host ? this.formatUser(host) : null,
       guest: guest ? this.formatUser(guest) : null,
     };
+  }
+
+  async reorderPhotos(
+    roomCode: string,
+    photoOrders: Array<{ id: string; order: number; selected: boolean }>,
+  ): Promise<string | null> {
+    const room = await prisma.room.findUnique({
+      where: { code: roomCode.toUpperCase() },
+      include: { users: true, photos: true },
+    });
+    if (!room) throw new PhotoUploadError('Room not found', 404);
+
+    await prisma.$transaction(
+      photoOrders.map((po) =>
+        prisma.photo.update({
+          where: { id: po.id },
+          data: { order: po.order, selected: po.selected },
+        }),
+      ),
+    );
+
+    return this.generateStrip(roomCode);
   }
 
   private formatPhoto(photo: any): Photo {
@@ -159,6 +172,7 @@ export class PhotoService {
       imageUrl: photo.imageUrl,
       shotIndex: photo.shotIndex,
       order: photo.order,
+      selected: photo.selected ?? true,
       createdAt: photo.createdAt.toISOString(),
     };
   }

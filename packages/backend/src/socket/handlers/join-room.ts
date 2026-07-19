@@ -76,7 +76,8 @@ export function registerJoinRoomHandler(
           isConnected: u.isConnected,
           createdAt: u.createdAt.toISOString(),
         })),
-      });
+      });     //fix 
+      
 
       socket.to(room.code).emit('user-joined', {
         user: {

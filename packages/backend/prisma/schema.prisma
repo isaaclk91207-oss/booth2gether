@@ -48,6 +48,7 @@ model Photo {
   imageUrl  String   @db.Text
   shotIndex Int      @db.Int
   order     Int      @db.Int
+  selected  Boolean  @default(true)
   createdAt DateTime @default(now())
 
   room Room @relation(fields: [roomId], references: [id], onDelete: Cascade)

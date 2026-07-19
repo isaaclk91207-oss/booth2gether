@@ -14,8 +14,7 @@ interface GenerateStripOptions {
   roomId: string;
   hostName: string;
   guestName: string;
-  hostPhotos: PhotoMetadata[];
-  guestPhotos: PhotoMetadata[];
+  photos: PhotoMetadata[];
 }
 
 const STRIP_WIDTH = 600;
@@ -24,6 +23,7 @@ const GRID_PADDING = 20;
 const HEADER_HEIGHT = 80;
 const FOOTER_HEIGHT = 60;
 const BORDER_RADIUS = 8;
+const COLUMNS = 2;
 
 async function downloadImage(url: string): Promise<Buffer> {
   if (url.startsWith('/uploads/')) {
@@ -53,27 +53,41 @@ async function roundCorners(input: Buffer, radius: number, width: number, height
     .toBuffer();
 }
 
+function computeGridPosition(
+  index: number,
+  total: number,
+  cellWidth: number,
+  cellHeight: number,
+): { x: number; y: number } {
+  const row = Math.floor(index / COLUMNS);
+  const col = index % COLUMNS;
+  const isLastRow = row === Math.floor((total - 1) / COLUMNS);
+  const itemsInLastRow = total - row * COLUMNS;
+  const gridWidth = cellWidth * COLUMNS + PHOTO_GAP * (COLUMNS - 1);
+
+  let x = col * (cellWidth + PHOTO_GAP);
+  const y = row * (cellHeight + PHOTO_GAP);
+
+  if (isLastRow && itemsInLastRow === 1) {
+    x = Math.floor((gridWidth - cellWidth) / 2);
+  }
+
+  return { x, y };
+}
+
 async function createPhotoGrid(
   photos: PhotoMetadata[],
   cellWidth: number,
   cellHeight: number,
-): Promise<Buffer> {
-  const gridWidth = cellWidth * 2 + PHOTO_GAP;
-  const gridHeight = cellHeight * 2 + PHOTO_GAP;
-
-  const sorted = [...photos].sort((a, b) => a.shotIndex - b.shotIndex);
-
-  const positions = [
-    { x: 0, y: 0 },
-    { x: cellWidth + PHOTO_GAP, y: 0 },
-    { x: 0, y: cellHeight + PHOTO_GAP },
-    { x: cellWidth + PHOTO_GAP, y: cellHeight + PHOTO_GAP },
-  ];
+): Promise<{ buffer: Buffer; height: number }> {
+  const rows = Math.ceil(photos.length / COLUMNS);
+  const gridWidth = cellWidth * COLUMNS + PHOTO_GAP * (COLUMNS - 1);
+  const gridHeight = cellHeight * rows + PHOTO_GAP * (rows - 1);
 
   const composites: sharp.OverlayOptions[] = [];
 
-  for (let i = 0; i < Math.min(sorted.length, 4); i++) {
-    const photo = sorted[i];
+  for (let i = 0; i < photos.length; i++) {
+    const photo = photos[i];
     if (!photo) continue;
     const imgBuffer = await downloadImage(photo.url);
     const resized = await sharp(imgBuffer)
@@ -81,8 +95,7 @@ async function createPhotoGrid(
       .toBuffer();
 
     const rounded = await roundCorners(resized, BORDER_RADIUS, cellWidth, cellHeight);
-    const pos = positions[i];
-    if (!pos) continue;
+    const pos = computeGridPosition(i, photos.length, cellWidth, cellHeight);
 
     composites.push({
       input: rounded,
@@ -100,7 +113,8 @@ async function createPhotoGrid(
     },
   });
 
-  return canvas.composite(composites).png().toBuffer();
+  const buffer = await canvas.composite(composites).png().toBuffer();
+  return { buffer, height: gridHeight };
 }
 
 function formatDate(date: Date): string {
@@ -123,22 +137,16 @@ export async function generatePhotoStrip(options: GenerateStripOptions): Promise
     roomId,
     hostName,
     guestName,
-    hostPhotos,
-    guestPhotos,
+    photos,
   } = options;
 
-  const cellW = Math.floor((STRIP_WIDTH - GRID_PADDING * 2 - PHOTO_GAP) / 2);
+  const cellW = Math.floor((STRIP_WIDTH - GRID_PADDING * 2 - PHOTO_GAP * (COLUMNS - 1)) / COLUMNS);
   const cellH = Math.floor(cellW * 0.75);
 
-  const [hostGrid, guestGrid] = await Promise.all([
-    createPhotoGrid(hostPhotos, cellW, cellH),
-    createPhotoGrid(guestPhotos, cellW, cellH),
-  ]);
+  const { buffer: photoGrid, height: gridHeight } = await createPhotoGrid(photos, cellW, cellH);
 
-  const gridWidth = cellW * 2 + PHOTO_GAP;
-  const gridHeight = cellH * 2 + PHOTO_GAP;
-
-  const totalHeight = HEADER_HEIGHT + gridHeight * 2 + PHOTO_GAP * 3 + FOOTER_HEIGHT + GRID_PADDING * 2;
+  const gridWidth = cellW * COLUMNS + PHOTO_GAP * (COLUMNS - 1);
+  const totalHeight = HEADER_HEIGHT + gridHeight + PHOTO_GAP * 2 + FOOTER_HEIGHT + GRID_PADDING * 2;
   const totalWidth = STRIP_WIDTH;
 
   const dateStr = escapeXml(formatDate(new Date()));
@@ -177,11 +185,6 @@ export async function generatePhotoStrip(options: GenerateStripOptions): Promise
             x2="${totalWidth - GRID_PADDING}" y2="${HEADER_HEIGHT}"
             stroke="#e94560" stroke-width="1" opacity="0.4"/>
 
-      <!-- Section labels -->
-      <text x="${totalWidth / 2}" y="${HEADER_HEIGHT + GRID_PADDING + gridHeight + PHOTO_GAP / 2 + 5}"
-            text-anchor="middle" font-family="Arial, sans-serif" font-size="11"
-            fill="#e94560" text-transform="uppercase" letter-spacing="3">STORY</text>
-
       <!-- Footer -->
       <text x="${totalWidth / 2}" y="${totalHeight - FOOTER_HEIGHT / 2 + 5}"
             text-anchor="middle" font-family="Arial, sans-serif" font-size="11"
@@ -200,8 +203,7 @@ export async function generatePhotoStrip(options: GenerateStripOptions): Promise
     </svg>
   `);
 
-  const hostGridY = HEADER_HEIGHT + GRID_PADDING;
-  const guestGridY = HEADER_HEIGHT + GRID_PADDING + gridHeight + PHOTO_GAP;
+  const photoGridY = HEADER_HEIGHT + GRID_PADDING;
 
   const outputFilename = `strip_${roomId}.png`;
   const outputPath = path.join(OUTPUT_DIR, outputFilename);
@@ -216,8 +218,7 @@ export async function generatePhotoStrip(options: GenerateStripOptions): Promise
   })
     .composite([
       { input: svgOverlay, left: 0, top: 0 },
-      { input: hostGrid, left: GRID_PADDING, top: hostGridY },
-      { input: guestGrid, left: GRID_PADDING, top: guestGridY },
+      { input: photoGrid, left: GRID_PADDING, top: photoGridY },
     ])
     .png()
     .toFile(outputPath);

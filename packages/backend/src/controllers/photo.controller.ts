@@ -84,3 +84,23 @@ export async function getResult(req: Request, res: Response) {
     res.status(500).json({ error: 'Failed to get result' });
   }
 }
+
+export async function reorderPhotos(req: Request, res: Response) {
+  try {
+    const { roomCode, photos } = req.body;
+    if (!roomCode || !photos || !Array.isArray(photos)) {
+      res.status(400).json({ error: 'Missing roomCode or photos array' });
+      return;
+    }
+
+    const stripUrl = await photoService.reorderPhotos(roomCode, photos);
+    res.json({ stripUrl });
+  } catch (error) {
+    if (error instanceof PhotoUploadError) {
+      res.status(error.statusCode).json({ error: error.message });
+      return;
+    }
+    console.error('reorder photos error:', error);
+    res.status(500).json({ error: 'Failed to reorder photos' });
+  }
+}

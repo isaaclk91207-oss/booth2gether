@@ -86,4 +86,10 @@ export const api = {
       host: any;
       guest: any;
     }>(`/api/photos/result/${roomCode}`),
+
+  reorderPhotos: (roomCode: string, photos: Array<{ id: string; order: number; selected: boolean }>) =>
+    fetchAPI<{ stripUrl: string | null }>('/api/photos/reorder', {
+      method: 'PUT',
+      body: JSON.stringify({ roomCode, photos }),
+    }),
 };

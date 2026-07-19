@@ -30,6 +30,7 @@ export interface Photo {
   imageUrl: string;
   shotIndex: number;
   order: number;
+  selected: boolean;
   createdAt: string;
 }
 
@@ -79,4 +80,13 @@ export interface GetResultResponse {
   stripUrl: string | null;
   host: User | null;
   guest: User | null;
+}
+
+export interface ReorderPhotosRequest {
+  roomCode: string;
+  photos: Array<{ id: string; order: number; selected: boolean }>;
+}
+
+export interface ReorderPhotosResponse {
+  stripUrl: string | null;
 }

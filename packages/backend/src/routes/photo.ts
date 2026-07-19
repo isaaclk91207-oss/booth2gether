@@ -4,6 +4,7 @@ import {
   getRoomPhotos,
   generateStrip,
   getResult,
+  reorderPhotos,
 } from '../controllers/photo.controller';
 import { uploadPhoto as uploadMiddleware } from '../middleware/upload';
 
@@ -111,3 +112,5 @@ photoRouter.post('/photos/generate', generateStrip);
  *         description: Room not found
  */
 photoRouter.get('/photos/result/:roomCode', getResult);
+
+photoRouter.put('/photos/reorder', reorderPhotos);
