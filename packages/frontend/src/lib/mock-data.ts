@@ -66,6 +66,7 @@ export const mockPhotos: Photo[] = Array.from({ length: 8 }, (_, i) => ({
   imageUrl: `https://placehold.co/400x300/${i % 2 === 0 ? '3b82f6' : 'ef4444'}/fff?text=Photo+${i + 1}`,
   shotIndex: Math.floor(i / 2) + 1,
   order: i + 1,
+  selected: true,
   createdAt: new Date().toISOString(),
 }));
 
